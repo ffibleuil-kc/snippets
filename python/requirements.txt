@@ -1,3 +1,6 @@
 numpy==1.26.3
 pylint==3.0.3
 pytest==7.4.4
+humanfriendly==10.0
+pdfminer.six==20231228
+pdfminer.six[image]==20231228
