@@ -17,17 +17,12 @@ for single_page in pages:
     header_printed = False
     unprocessed_types = set()
     for page_element in single_page:
-        print(str(page_element))
-    #     if isinstance(page_element, LTTextBox):
-    #         text = page_element.get_text()
-    #         if "=" in text:
-    #             if not header_printed:
-    #                 print(f"===== Page #{single_page.pageid} =====")
-    #                 header_printed = True
-    #             print(f"Processed type: {type(page_element)}")
-    #             print(text)
-    #             print(str(page_element))
-    #     else:
-    #         unprocessed_types.add(type(page_element))
-    # if unprocessed_types and header_printed:
-    #     print(f"Unprocessed types for page {single_page.pageid}: {unprocessed_types}")
+        if isinstance(page_element, LTTextBox):
+            text = page_element.get_text().encode()
+            if b"=" in text:
+                if not header_printed:
+                    print
+                    header_printed = True
+                print(text.decode("utf-8", errors="strict"))
+        else:
+            unprocessed_types.add(type(page_element))
